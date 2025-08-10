@@ -1,0 +1,588 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/Recruiter/projects/:
+    get:
+      operationId: listProjects
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createProject
+      description: Create project (with required_skills in body), run recommendations,
+        and (optionally) ask AI for challenge suggestions.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+  /api/Recruiter/projects/{id}/:
+    get:
+      operationId: retrieveProject
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this project.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateProject
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this project.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateProject
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this project.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyProject
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this project.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/Recruiter/projects/{id}/recommendations/:
+    get:
+      operationId: recommendationsProject
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this project.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+  /api/HireMe/developers/:
+    get:
+      operationId: listDevelopers
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createDeveloper
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Developer'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+  /api/HireMe/developers/{id}/:
+    get:
+      operationId: retrieveDeveloper
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this developer.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateDeveloper
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this developer.
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Developer'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateDeveloper
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this developer.
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Developer'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyDeveloper
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this developer.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/HireMe/developers/{id}/invites/:
+    get:
+      operationId: invitesDeveloper
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this developer.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+  /api/Recruiter/projects/{id}/invite/:
+    post:
+      operationId: inviteProject
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this project.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+  /api/HireMe/developers/create_developer/:
+    post:
+      operationId: createDeveloperDeveloper
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Developer'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+  /api/HireMe/developers/submit_challenge/:
+    post:
+      operationId: submitChallengeDeveloper
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Developer'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+  /api/HireMe/developers/{id}/accept_invite/:
+    post:
+      operationId: acceptInviteDeveloper
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this developer.
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Developer'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+  /api/HireMe/developers/{id}/decline_invite/:
+    post:
+      operationId: declineInviteDeveloper
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this developer.
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Developer'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Developer'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Developer'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        required_skills:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              name:
+                type: string
+                maxLength: 64
+              required_level:
+                type: integer
+                maximum: 9223372036854775807
+                minimum: -9223372036854775808
+                format: int64
+                default: 70
+            required:
+            - name
+        project_name:
+          type: string
+          maxLength: 160
+        description:
+          type: string
+        status:
+          enum:
+          - draft
+          - matching
+          - challenging
+          - closed
+          type: string
+        automation_enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        target_count:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+      required:
+      - project_name
+    Developer:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        skills:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              challenge:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 160
+                  description:
+                    type: string
+                  difficulty:
+                    type: string
+                    maxLength: 32
+                  time_limit:
+                    type: integer
+                    maximum: 9223372036854775807
+                    minimum: -9223372036854775808
+                    format: int64
+                  challenge_type:
+                    enum:
+                    - coding
+                    - system_design
+                    - algorithm
+                    - debugging
+                    - architecture
+                    type: string
+                  challenge_question:
+                    type: string
+                  max_score:
+                    type: integer
+                    maximum: 9223372036854775807
+                    minimum: -9223372036854775808
+                    format: int64
+                required:
+                - title
+                - description
+                - difficulty
+                - time_limit
+                - challenge_type
+                - challenge_question
+              name:
+                type: string
+                maxLength: 64
+              level:
+                type: integer
+                maximum: 9223372036854775807
+                minimum: -9223372036854775808
+                format: int64
+              validated:
+                type: boolean
+            required:
+            - name
+        full_name:
+          type: string
+          maxLength: 120
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        bio:
+          type: string
+        location:
+          type: string
+          maxLength: 120
+        experience_level:
+          enum:
+          - junior
+          - mid
+          - senior
+          - lead
+          - principal
+          type: string
+        availability:
+          enum:
+          - available
+          - open_to_offers
+          - not_available
+          type: string
+        resume:
+          type: string
+          nullable: true
+        dev_score:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        validation_status:
+          type: string
+          maxLength: 32
+        portfolio_links:
+          type: object
+          nullable: true
+      required:
+      - full_name
+      - email

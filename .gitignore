@@ -1,0 +1,22 @@
+# SQLite database file
+db.sqlite3
+.DS_Store
+
+# FAISS index file
+index.faiss
+
+# Virtual environment directory
+venv/
+
+# Collected static files
+staticfiles/
+
+# Directory for documents
+documents/
+
+# Ignore Media files
+media/
+
+# __pycache__ directory
+__pycache__/
+.env
